@@ -1,0 +1,34 @@
+<!-- 从base.html扩展，避免每个网页模板都重复公用部分-->
+<!-- 只需要写title部分和content部分的内容就可以了-->
+{% extends "base.html" %} 
+{% block title %}文本资源列表{% endblock %}
+
+{% block content %}
+<div class="container">
+<!-- 使用Bootstrap制作导航栏-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">学习资源</a>
+    <div class="navbar-collapse offcanvas-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"><a class="nav-link" href="#">文本</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">图片</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">文档</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">音频</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">视频</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">链接</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- 使用Bootstrap制作表格-->      
+<table class="table table-light table-hover">
+  <thead class="thead-light">
+    <tr><th>文本资源列表</th></tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+        <tr><td>{{article.title}}<span class="badge badge-danger">New</span></td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
