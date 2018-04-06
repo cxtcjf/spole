@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+{% block title %}图片内容{% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{picture.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">{{picture.created}} by <a href="#">{{picture.author.username}}</a></p>
+    <p><img src="{{picture.path}}"></p>
+    
+ </div>
+</div>
+{% endblock %}

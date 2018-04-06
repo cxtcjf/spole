@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+{% block title %}链接内容{% endblock %}
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{link.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">{{link.created}} by <a href="#">{{link.author.username}}</a></p>
+    <p>{{link.url}}</p>
+    <p>{% if code == 200 %}<span>链接有效</span> {% endif %} 
+       {% if code == 44 %}<span>链接无效</span>{% endif %} 
+    </p>
+ </div>
+</div>
+{% endblock %}

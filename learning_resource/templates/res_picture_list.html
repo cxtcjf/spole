@@ -1,7 +1,7 @@
 <!-- 从base.html扩展，避免每个网页模板都重复公用部分-->
 <!-- 只需要写title部分和content部分的内容就可以了-->
 {% extends "base.html" %} 
-{% block title %}文本资源列表{% endblock %}
+{% block title %}图片资源列表{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -10,8 +10,8 @@
     <a class="navbar-brand" href="#">学习资源</a>
     <div class="navbar-collapse offcanvas-collapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"><a class="nav-link" href="#">文本</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">图片</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"></a>文本</a></li>
+          <li class="nav-item active"><a class="nav-link" href="#">图片</a></li>
           <li class="nav-item"><a class="nav-link" href="#">文档</a></li>
           <li class="nav-item"><a class="nav-link" href="#">音频</a></li>
           <li class="nav-item"><a class="nav-link" href="#">视频</a></li>
@@ -29,11 +29,11 @@
     </tr>
   </thead>
   <tbody>
-    {% for article in articles %}
+    {% for picture in pictures %}
         <tr>
-          <td><a href="article/{{article.id}}">{{article.title}}</a></td>
-          <td>{{article.created}}</td>
-          <td>{{article.author.username}}</td>
+          <td><a href="picture/{{picture.id}}">{{picture.title}}</a></td>
+          <td>{{picture.created}}</td>
+          <td>{{picture.author.username}}</td>
         </tr>
     {% endfor %}
   </tbody>

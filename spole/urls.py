@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings##
+from django.conf.urls.static import static##
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('resource/', include('learning_resource.urls')), #添加应用自己的url定义文件
+    path('ckeditor/', include('ckeditor_uploader.urls')),#添加ckeditor支持
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)##
