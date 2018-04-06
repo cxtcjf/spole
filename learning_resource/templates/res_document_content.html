@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+{% block title %}文档内容{% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{document.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">{{document.created}} by <a href="#">{{document.author.username}}</a></p>
+    <p><a href="{{document.path.url}}">{{document.path}}</a></p>
+ </div>
+</div>
+{% endblock %}

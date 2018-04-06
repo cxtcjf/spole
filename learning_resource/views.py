@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from .models import ResArticle #第1组
 from .models import ResPicture
-#第3组 from .models import ResDocument
-#第4组 from .models import ResAudio
-#第5组 from .models import ResVideo
+from .models import ResDocument
+from .models import ResAudio
+from .models import ResVideo
 from .models import ResLink #第6组
 
 import urllib.request
@@ -22,7 +22,17 @@ def res_article_show(request,res_article_id):
     article = ResArticle.objects.get(id=res_article_id)
     return render(request, "res_article_content.html",{"article":article})
 
+#文档资源视图函数
+def res_document_list(request):
+    documents = ResDocument.objects.all()
+    return render(request, "res_document_list.html",{"documents":documents})
+    
+def res_document_show(request,res_document_id):
+    document = ResDocument.objects.get(id=res_document_id)
+    return render(request, "res_document_content.html",{"document":document})
 
+
+#图片资源视图函数
 def res_picture_list(request):
     pictures = ResPicture.objects.all()
     return render(request, "res_picture_list.html",{"pictures":pictures})
@@ -31,6 +41,25 @@ def res_picture_show(request,res_picture_id):
     picture = ResPicture.objects.get(id=res_picture_id)
     return render(request, "res_picture_content.html",{"picture":picture})
 
+#音频资源视图函数
+def res_audio_list(request):
+    audios = ResAudio.objects.all()
+    return render(request, "res_audio_list.html",{"audios":audios})
+    
+def res_audio_show(request,res_audio_id):
+    audio = ResAudio.objects.get(id=res_audio_id)
+    return render(request, "res_audio_content.html",{"audio":audio})
+
+#视频资源视图函数
+def res_video_list(request):
+    videos = ResVideo.objects.all()
+    return render(request, "res_video_list.html",{"videos":videos})
+    
+def res_video_show(request,res_video_id):
+    video = ResVideo.objects.get(id=res_video_id)
+    return render(request, "res_video_content.html",{"video":video})
+
+#链接资源视图函数
 def res_link_list(request):
     links = ResLink.objects.all()
     return render(request, "res_link_list.html",{"links":links})

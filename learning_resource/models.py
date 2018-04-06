@@ -26,7 +26,8 @@ class ResArticle(models.Model):
 # 创建ResPicture对象
 class ResPicture(models.Model):
     title = models.CharField(max_length=300,verbose_name='图片标题') 
-    path = models.CharField(max_length=300,verbose_name='图片路径')   # 创建“路径”属性，长度300足够了
+    #path = models.CharField(max_length=300,verbose_name='图片路径')   # 创建“路径”属性，长度300足够了
+    path = models.FileField(verbose_name='图片文件')#修改为文件字段类型
     '''字段author规定了图片资源和用户之间的关系，一个用户对应多个资源
     使用ResPicture.author可以查询到创建这个资源的user
     related_name="res_pictures"的作用是，
@@ -60,9 +61,10 @@ class ResDocument(models.Model):
 # 创建ResAudio对象
 class ResAudio(models.Model):
     title = models.CharField(max_length=300,verbose_name='标题') 
-    path = models.CharField(max_length=300)
-    #author = models.ForeignKey(User,on_delete=models.CASCADE,related_name="res_audios",default=None)#外键型字段
-    #created = models.DateTimeField(auto_now_add=True)#日期时间型字段
+    #path = models.CharField(max_length=300)
+    path = models.FileField(verbose_name='音频文件')#修改为文件字段类型
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name="res_audios",default=None)#外键型字段
+    created = models.DateTimeField(auto_now_add=True)#日期时间型字段
 
     def __str__(self): 
         return self.title
@@ -73,9 +75,10 @@ class ResAudio(models.Model):
 # 创建ResVideo对象
 class ResVideo(models.Model):
     title = models.CharField(max_length=300,verbose_name='标题') 
-    path = models.CharField(max_length=300)
-    #author = models.ForeignKey(User,on_delete=models.CASCADE,related_name="res_videos",default=None)#外键型字段
-    #created = models.DateTimeField(auto_now_add=True)#日期时间型字段
+    #path = models.CharField(max_length=300)
+    path = models.FileField(verbose_name='视频文件')#修改为文件字段类型
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name="res_videos",default=None)#外键型字段
+    created = models.DateTimeField(auto_now_add=True)#日期时间型字段
 
     def __str__(self): 
         return self.title

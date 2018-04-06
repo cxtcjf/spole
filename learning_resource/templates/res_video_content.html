@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+{% block title %}视频内容{% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{video.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">{{video.created}} by <a href="#">{{video.author.username}}</a></p>
+    <p><video src="{{video.path.url}}" controls></video></p>
+ </div>
+</div>
+{% endblock %}

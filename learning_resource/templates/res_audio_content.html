@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+{% block title %}音频内容{% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{audio.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">{{audio.created}} by <a href="#">{{audio.author.username}}</a></p>
+    <p><audio src="{{audio.path.url}}" controls></audio></p>
+ </div>
+</div>
+{% endblock %}
