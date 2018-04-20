@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'learning_resource', #添加课程资源应用
     'ckeditor',#添加编辑器应用
+    'cms',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,"static"),
+)
 
 MEDIA_URL = '/media/'
 # 放在django项目根目录，同时也需要创建media文件夹

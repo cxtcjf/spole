@@ -4,6 +4,7 @@
 <!-- Bootstrap中还包含了丰富的Web组件，根据这些组件，可以快速的搭建一个漂亮、功能完备的网站。-->
 
 <!-- 网页设置为HTML5-->
+{% load staticfiles %}
 <!doctype html>
 <html lang="zh-cn">
     <head>
@@ -12,7 +13,7 @@
         <!-- 这是Bootstrap要求的内容，开启响应式布局，自动适配移动设备-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 
         <title>{% block title %}{% endblock %}</title>
     </head>
@@ -22,8 +23,8 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
-        <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="{% static 'jquery.slim.min.js' %}"></script>
+        <script src="{% static 'popper.min.js' %}"></script>
+        <script src="{% static 'bootstrap.min.js' %}"></script>
     </body>
 </html>
