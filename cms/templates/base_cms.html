@@ -8,6 +8,11 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
         <title>{% block title %}{% endblock %}</title>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'jquery.slim.min.js' %}"></script>
+        <script src="{% static 'popper.min.js' %}"></script>
+        <script src="{% static 'bootstrap.min.js' %}"></script>
     </head>
     <body>
         <!-- 对所有的CMS页面进行布局 -->
@@ -28,11 +33,7 @@
           <!-- 所有页面顶部加入统一的底部信息 -->
           {% include 'footer.html' %} 
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{% static 'jquery.slim.min.js' %}"></script>
-        <script src="{% static 'popper.min.js' %}"></script>
-        <script src="{% static 'bootstrap.min.js' %}"></script>
+        
         <!-- 开源图标库 -->
         <script src="{% static 'feather.min.js' %}"></script>
         <script>feather.replace()</script>

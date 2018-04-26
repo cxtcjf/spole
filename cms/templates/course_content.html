@@ -1,0 +1,15 @@
+{% extends "base_cms.html" %}
+{% block title %}{{course.name}}{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">课程详情</div>
+    <div class="card-body">
+      <h3>
+        <a class="text-dark">{{course.name}}</a>
+      </h3>
+      <div class="text-muted">{{course.created}}</div>
+      <p class="card-text mb-auto">课程简介：{{course.introduction}}</p>
+      <a href="#">创建者：{{course.author}}</a>
+    </div>
+</div>
+{% endblock %}
