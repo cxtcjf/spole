@@ -1,0 +1,26 @@
+{% extends "base_cms.html" %} 
+{% block title %}学习进度{% endblock %} 
+{% block content %}
+<div class="container-fluid">
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">学号</th>
+        <th scope="col">姓名</th>
+        <th scope="col">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for member in members%}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{member.sno}}</td>
+            <td>{{member.name}}</td>
+            <td><a href="{% url 'completion_show' course_id=course_id member_id=member.id %}">查看进度</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %} 

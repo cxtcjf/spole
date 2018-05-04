@@ -64,13 +64,13 @@ class Member(models.Model):
 #教学进度模型
 class Completion(models.Model):
     course = models.ForeignKey(Course,on_delete=models.CASCADE,related_name="completions",default=None,verbose_name='所属课程')
-    syllabus = models.ForeignKey(Syllabus,on_delete=models.CASCADE,related_name="completions",default=None,verbose_name='所属课程')
+    syllabus = models.ForeignKey(Syllabus,on_delete=models.CASCADE,related_name="completions",default=None,verbose_name='大纲节点')
     member = models.ForeignKey(Member,on_delete=models.CASCADE,related_name="completions",default=None,verbose_name='学生')
     complete = models.BooleanField(verbose_name='完成情况')
     complete_at = models.DateTimeField(auto_now=True,verbose_name='记录时间')
 
     def __str__(self): 
-        return self.course+'-'+self.syllabus+'('+self.syllabus.level+')-'+self.member
+        return self.course.name+'-'+self.syllabus.title+'('+self.syllabus.level+')-'+self.member.name
     class Meta:
         verbose_name_plural = '进度'
 

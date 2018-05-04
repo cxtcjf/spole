@@ -1,0 +1,26 @@
+{% extends "base_cms.html" %} 
+{% block title %}课程成员{% endblock %} 
+{% block content %}
+<div class="container-fluid">
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">学号</th>
+        <th scope="col">姓名</th>
+        <th scope="col">角色</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for member in members%}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{member.sno}}</td>
+            <td>{{member.name}}</td>
+            <td>{{member.role}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %} 

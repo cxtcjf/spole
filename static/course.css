@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.course_content img { width:100%;}
+.course_content h2 { margin-top:2rem; margin-bottom:1rem; font-size:2rem; font-weight:300;}
+.course_content .course_content_line { margin-bottom:3.6rem; height:0.2rem; width:3.6rem; background:#222;}
+.course_content_r ul { padding-left:0; list-style:none;}
+.course_content_r li { display:flex; flex-wrap:no-wrap; border-bottom:1px solid #fff; color:#fff;}
+.course_content_r li .content_r_t { flex:1;padding:1rem;  text-align:center; font-size:0.89rem; background:#383e4b; border-right:1px solid #fff;}
+.course_content_r li .content_r_c { flex:3; padding:1rem; background:#474f60;font-size:0.89rem;}
+.course_content_l { margin-top:0rem;margin-bottom:4rem;}
+.course_content_l_t { padding-left:1rem; height:3rem; line-height:3rem; color:#fff; background:#474f60;}
+.course_content_l h5 a { text-decoration:none; color:#5b5b5b; font-size:1rem; }
+.course_section { margin-top:0rem;}

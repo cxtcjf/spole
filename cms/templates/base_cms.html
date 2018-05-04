@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'course.css' %}">
         <title>{% block title %}{% endblock %}</title>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -25,7 +26,7 @@
               {% include 'leftslider.html' %}  
             <!-- 页面主体内容 -->
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+              <div>
                {% block content %}{% endblock %}
               </div>
             </main>
