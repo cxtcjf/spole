@@ -1,0 +1,30 @@
+{% extends "base_cms.html" %} 
+{% block title %}成绩列表{% endblock %} 
+{% block content %}
+<div class="container-fluid">
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">学号</th>
+        <th scope="col">姓名</th>
+        <th scope="col">课程</th>
+        <th scope="col">成绩项</th>
+        <th scope="col">得分</th>
+        <th scope="col">评分人</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for grade in grades%}
+        <tr>
+            <td>{{grade.member.sno}}</td>
+            <td>{{grade.member.name}}</td>
+            <td>{{grade.course.name}}</td>
+            <td>{{grade.item}}</td>
+            <td>{{grade.score}}</td>
+            <td>{{grade.grader}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %} 

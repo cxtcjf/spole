@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField#引入ckeditor的特有类型
+#from ckeditor.fields import RichTextField#引入ckeditor的特有类型
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 #课程模型
@@ -8,7 +9,7 @@ class Course(models.Model):
     name = models.CharField(max_length=300,verbose_name='课程名称')
     code = models.CharField(max_length=300,verbose_name='课程代码')
     #introduction = models.TextField(verbose_name='课程简介')
-    introduction = RichTextField(verbose_name='课程简介')#引入ckeditor编辑器
+    introduction = RichTextUploadingField(verbose_name='课程简介')#引入ckeditor编辑器
     picture = models.ImageField(verbose_name='课程封面')
     term = models.CharField(max_length=300,verbose_name='学期代码')
     author = models.ForeignKey(User,on_delete=models.CASCADE,\
@@ -33,7 +34,7 @@ class Syllabus(models.Model):
     level = models.CharField(max_length=7,choices=LEVEL_CHOICES,verbose_name='层次类型')
     parent = models.ForeignKey('self',on_delete=models.PROTECT,related_name="children",null=True,blank=True,default=None,verbose_name='上级节点') 
     #content = models.TextField(verbose_name='内容')
-    content = RichTextField(verbose_name='内容')#引入ckeditor编辑器
+    content = RichTextUploadingField(verbose_name='内容')#引入ckeditor编辑器
     author = models.ForeignKey(User,on_delete=models.SET_NULL,related_name="syllabuses",null=True,blank=True,default=None,verbose_name='创建者')
     created = models.DateTimeField(auto_now_add=True)
 
@@ -85,7 +86,7 @@ class Grade(models.Model):
     grader = models.CharField(max_length=300,verbose_name='评分人')
    
     def __str__(self): 
-        return self.course+'-'+self.member+'-'+self.item
+        return self.course.name+'-'+self.member.sno+'-'+self.item
     class Meta:
         verbose_name_plural = '成绩'
 
@@ -98,7 +99,7 @@ class Question(models.Model):
     )
     course = models.ForeignKey(Course,on_delete=models.CASCADE,related_name="questions",default=None,verbose_name='所属课程')
     title = models.CharField(max_length=300,verbose_name='标题')
-    subject = RichTextField(verbose_name='题干')
+    subject = RichTextUploadingField(blank=True,verbose_name='题干')
     qtype = models.CharField(max_length=300,choices=QTYPE_CHOICES,verbose_name='题型')
     score = models.CharField(max_length=300,verbose_name='得分')
     

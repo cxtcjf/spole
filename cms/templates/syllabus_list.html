@@ -20,7 +20,7 @@
               {% for unit in section.children.all %}
               <p class="card-text">
                 {{unit.title}}
-                <span class="float-right">显示内容</span>
+                <a  href="{% url 'syllabus_show' course_id=course_id syllabus_id=unit.id %}"><span class="float-right">显示内容</span></a>
               </p>
               {% endfor %}
           </div>

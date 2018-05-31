@@ -1,0 +1,13 @@
+{% extends "base_cms.html" %} 
+{% block title %}文章内容{% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{unit.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">{{unit.created}} by <a href="#">{{unit.author.username}}</a></p>
+    <p>{{unit.content|safe}}</p>
+ </div>
+</div>
+{% endblock %}
