@@ -1,0 +1,22 @@
+{% extends "base_tams.html" %} 
+{% block title %}作业完成详情{% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{solution.assignment.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">学号:{{solution.sno}} 姓名:{{solution.name}}</p>
+    <p class="blog-post-meta">提交时间：{{solution.created}}</p>
+    <p>{{solution.content|safe}}</p>
+    <p>附件:
+    {% if solution.attachment %}
+        <a href="{{solution.attachment.url}}">{{solution.attachment}}</a>
+    {% endif %}
+    </p>
+    <hr>
+    <p class="blog-post-meta">得分：{{solution.score}}</p>
+    <p>教师评语：{{solution.correction|safe}}</p>
+ </div>
+</div>
+{% endblock %}

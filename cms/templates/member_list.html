@@ -17,7 +17,12 @@
             <th scope="row">{{forloop.counter}}</th>
             <td>{{member.sno}}</td>
             <td>{{member.name}}</td>
-            <td>{{member.role}}</td>
+            <td>{% if member.role == 'teacher' %}
+                教师
+                {% elif member.role == 'student' %}
+                学生
+                {% endif %}  
+            </td>
         </tr>
         {% endfor %}
     </tbody>

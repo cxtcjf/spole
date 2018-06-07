@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'learning_resource', #添加课程资源应用
     'ckeditor',#添加编辑器应用
-    'cms',
+    'cms',#添加课程管理应用
+    'tams',#添加教学活动管理应用
 ]
 
 MIDDLEWARE = [

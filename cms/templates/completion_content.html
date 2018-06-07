@@ -20,7 +20,7 @@
             <td>{{completion.member.sno}}</td>
             <td>{{completion.member.name}}</td>
             <td>{{completion.syllabus.title}}</td>
-            <td>{{completion.complete}}</td>
+            <td>{% if completion.complete %}完成{% endif %}</td>
             <td>{{completion.complete_at}}</td>
         </tr>
         {% endfor %}

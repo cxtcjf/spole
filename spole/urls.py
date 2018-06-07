@@ -23,6 +23,7 @@ urlpatterns = [
     path('resource/', include('learning_resource.urls')), #添加应用自己的url定义文件
     path('ckeditor/', include('ckeditor_uploader.urls')),#添加ckeditor支持
     path('cms/', include('cms.urls')),#添加cms自己的url定义文件
+    path('tams/', include('tams.urls')),#添加tams自己的url定义文件
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)##

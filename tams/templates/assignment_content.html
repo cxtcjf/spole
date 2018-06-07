@@ -1,0 +1,23 @@
+{% extends "base_tams.html" %} 
+{% block title %}作业内容{% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="blog-post">
+    <h2 class="blog-post-title">{{assignment.title}}</h2>
+    <hr>
+    <p class="blog-post-meta">作业类型:
+        {% if assignment.score_type == 'scale' %}
+        评级
+        {% elif assignment.score_type == 'point' %}
+        评分
+        {% endif %}  
+    </p>
+    <p class="blog-post-meta">及格线：{{assignment.pass_line}}</p>
+    <p>{{assignment.description|safe}}</p>
+    <p>附件:<a href="{{assigment.attachment.url}}">{{assignment.attachment}}</a></p>
+    <p class="blog-post-meta">开始时间：{{assignment.begin}}</p>
+    <p class="blog-post-meta">截止时间：{{assignment.end}}</p>
+ </div>
+</div>
+{% endblock %}
