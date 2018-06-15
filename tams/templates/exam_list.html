@@ -1,0 +1,32 @@
+{% extends "base_tams.html" %} 
+{% block title %}测验列表{% endblock %} 
+{% block content %}
+<div class="container-fluid">
+<table class="table table-striped">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">编号</th>
+        <th scope="col">标题</th>
+        <th scope="col">开始</th>
+        <th scope="col">截止</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for exam in exams%}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{exam.code}}</td>
+            <td><a href="{% url 'exam_show' exam_id=exam.id %}">{{exam.title}}</a></td>
+            <td>{{exam.begin}}</td>
+            <td>{{exam.end}}</td>
+            <td><a href="{% url 'exam_paper' exam_id=exam.id %}">查看试卷</a></td>
+            <td><a href="{% url 'answer_paper' exam_id=exam.id %}">查看答卷</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %} 

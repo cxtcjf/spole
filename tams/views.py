@@ -20,3 +20,23 @@ def solution_list(request,assignment_id):
 def solution_show(request,solution_id):
     solution = Solution.objects.get(id=solution_id)
     return render(request, "solution_content.html",{"solution":solution})
+
+#列出所有测验
+def exam_list(request):
+    exams = Exam.objects.all()
+    return render(request, "exam_list.html",{"exams":exams})
+
+#根据id，查询测验详情
+def exam_show(request,exam_id):
+    exam = Exam.objects.get(id=exam_id)
+    return render(request, "exam_content.html",{"exam":exam})
+
+#根据测验id，查询试卷所有试题
+def exampaper_show(request,exam_id):
+    exampaper = ExamPaper.objects.filter(exam_id=exam_id)
+    return render(request, "exampaper_content.html",{"exampaper":exampaper})
+
+#根据测验id，查询所有答卷
+def answerpaper_show(request,exam_id):
+    answers = AnswerPaper.objects.filter(exam_id=exam_id)
+    return render(request, "answer_list.html",{"answers":answers})

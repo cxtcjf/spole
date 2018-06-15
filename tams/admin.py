@@ -9,3 +9,8 @@ admin.site.register(Assignment,AssignmentAdmin)
 class SolutionAdmin(admin.ModelAdmin):
     list_display = ('assignment','sno','name','created',)
 admin.site.register(Solution,SolutionAdmin)
+
+admin.site.register(Exam)
+admin.site.register(ExamPaper)
+admin.site.register(Option)
+admin.site.register(AnswerPaper)
