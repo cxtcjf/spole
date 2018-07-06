@@ -1,0 +1,16 @@
+{% extends "base_ple.html" %}
+{% block title %}{{course.name}}{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">课程详情</div>
+    <div class="card-body">
+      <h3>
+        <a class="text-dark">{{course.name}}</a>
+      </h3>
+      <div class="text-muted">{{course.created}} <a href="#">创建者：{{course.author}}</a></div>
+      <p class="card-text mb-auto"> 课程简介：{{course.introduction|safe}}</p>
+     
+      <div><a href="{% url 'ple_elective' course.id %}" class="btn btn-primary" role="button" aria-pressed="true">选修课程</a></div>
+    </div>
+</div>
+{% endblock %}

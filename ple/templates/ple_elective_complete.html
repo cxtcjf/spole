@@ -1,0 +1,16 @@
+{% extends "base_ple.html" %}
+{% block title %}选课结果{% endblock %}
+{% block content %}
+<h1>选课结果</h1>
+{% if result %}  
+  <div class="alert alert-success" role="alert">
+    <h2>选课成功！</h2>
+  </div>
+  <p>请<strong><a href="{% url 'ple_my_course' %}">查看已选课程</a></strong></p>
+ {% else %} 
+ <div class="alert alert-danger" role="alert">
+    <h2>选课失败！</h2>
+  </div>
+  <p>请<strong><a href="{% url 'ple_elective' course_id %}">重新选课</a></strong></p>
+{% endif %}
+{% endblock %}

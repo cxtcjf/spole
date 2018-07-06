@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <!-- 这是Bootstrap要求的内容，开启响应式布局，自动适配移动设备-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'course.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'jquery.slim.min.js' %}"></script>
+        <script src="{% static 'popper.min.js' %}"></script>
+        <script src="{% static 'bootstrap.min.js' %}"></script>
+    </head>
+    <body>
+        <!-- 对所有的CMS页面进行布局 -->
+         
+        <div class="container-fluid">
+          <!-- 所有页面顶部加入统一的导航栏 -->
+          {% include 'header_ple.html' %}  
+          <div class="row">
+            <!-- 所有页面左边加入统一的功能菜单 -->  
+              {% include 'leftslider_ple.html' %}  
+            <!-- 页面主体内容 -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+              <div>
+               {% block content %}{% endblock %}
+              </div>
+            </main>
+          </div>
+          <!-- 所有页面顶部加入统一的底部信息 -->
+          {% include 'footer_ple.html' %} 
+        </div>
+        
+        <!-- 开源图标库 -->
+        <script src="{% static 'feather.min.js' %}"></script>
+        <script>feather.replace()</script>
+    </body>
+</html>

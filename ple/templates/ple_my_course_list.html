@@ -1,0 +1,26 @@
+{% extends "base_ple.html" %}
+{% block title %}课程列表{% endblock %}
+{% block content %}
+<div class="container">
+   <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">课程名称</th>
+        <th scope="col">创建者</th>
+        <th scope="col">创建时间</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for member in members %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{member.course.name}}</td>
+        <td>{{member.course.author}}</td>
+        <td>{{member.course.created}}</td>
+      </tr>
+    {% endfor %}  
+    </tbody>
+  </table>
+</div>
+{% endblock %}

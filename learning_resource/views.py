@@ -8,6 +8,7 @@ from .models import ResLink #第6组
 
 import urllib.request
 
+
 # Create your views here.
 # 第1组
 # 视图函数，用于响应用户请求，读取文章列表
@@ -73,3 +74,19 @@ def res_link_show(request,res_link_id):
     except:#如果打开链接出错会被捕获
         code = 44#返回错误代码
     return render(request, "res_link_content.html",{"link":link,"code":code})
+
+from django.http import JsonResponse#支持Ajax
+from django.forms.models import model_to_dict
+
+#显示ajax视图
+def ajax_article_list(request):
+    return render(request, "ajax_article_list.html")
+
+# 响应用户Ajax请求，返回json格式数据
+def articles_json(request):
+    articles = ResArticle.objects.all()
+    data_list = []
+    for article in articles:
+        data_list.append(model_to_dict(article))
+    return JsonResponse(data_list,safe=False)
+

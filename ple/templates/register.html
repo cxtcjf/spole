@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>ple</title>
+        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    </head>
+    <body>
+        <div class="container">
+                <h1>用户注册</h1>
+                <p>如果已经有账号, 请<strong><a href="{% url 'login_page' %}">登录</a></strong></p>
+                <form class="form-horizontal" action="." method="post">{% csrf_token %}
+                    {{ form.as_p}}
+                    <input type="submit" class="btn btn-primary btn-lg" value="注册">
+                </form>
+        </div>
+    </body>
+</html>

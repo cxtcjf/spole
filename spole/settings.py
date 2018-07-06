@@ -41,12 +41,15 @@ INSTALLED_APPS = [
     'ckeditor',#添加编辑器应用
     'cms',#添加课程管理应用
     'tams',#添加教学活动管理应用
+    'ple',#添加个人学习环境应用
+    'corsheaders',#
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',#添加Cors中间件
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -130,3 +133,11 @@ MEDIA_URL = '/media/'
 # 放在django项目根目录，同时也需要创建media文件夹
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = 'upload/'
+
+#允许跨站脚本的白名单
+#https://github.com/ottoyiu/django-cors-headers/
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1',
+    '211.83.191.60',
+    'localhost',
+)

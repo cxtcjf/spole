@@ -1,0 +1,10 @@
+{% extends "base_ple.html" %}
+{% block title %}{{course.name}}{% endblock %}
+{% block content %}
+<h1>选课信息</h1>
+<h2>{{course.name}}</h2>
+<form class="form-horizontal" action="." method="post">{% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" class="btn btn-primary" value="选修">
+</form>
+{% endblock %}

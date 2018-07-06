@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ple</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>注册结果</h1>
+        {% if result %}
+        <div class="alert alert-success" role="alert">
+            <h2>注册成功！</h2>
+        </div>
+        <p>请<strong><a href="{% url 'login_page' %}">登录</a></strong></p>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            <h2>注册失败！</h2>
+        </div>
+        <p>请<strong><a href="{% url 'user_register' %}">重新注册</a></strong></p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
